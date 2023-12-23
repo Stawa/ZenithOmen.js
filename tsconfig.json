@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "checkJs": false,
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "esModuleInterop": true,
+    "exactOptionalPropertyTypes": false,
+    "incremental": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ESNext",
+    "useUnknownInCatchVariables": true
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules"]
+}

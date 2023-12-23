@@ -1,0 +1,35 @@
+{
+  "name": "zenith-omen.js",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/types",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc --build",
+    "clean": "IF EXIST dist rmdir /s /q dist"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stawa/ZenithOmen.js.git"
+  },
+  "keywords": [
+    "anime",
+    "api",
+    "roleplay"
+  ],
+  "author": "Stawa",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Stawa/ZenithOmen.js/issues"
+  },
+  "homepage": "https://github.com/Stawa/ZenithOmen.js#readme"
+}
