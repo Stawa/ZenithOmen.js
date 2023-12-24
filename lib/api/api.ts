@@ -175,7 +175,9 @@ export class ZenithOmen extends request {
     const data =
       outputType === OutputType.JSON
         ? await response.json()
-        : await xml2js.parseStringPromise(await response.text());
+        : await xml2js.parseStringPromise(await response.text(), {
+            explicitArray: false,
+          });
     return new APIResponse(data);
   }
 }

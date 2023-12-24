@@ -28,7 +28,7 @@ export default class APIRequest {
    */
   async get(version: string, endpoint: string, outputType: string): Promise<Response> {
     const response = await fetch(
-      `${this.baseUrl}${version}/${endpoint}/?type=${outputType}`
+      `${this.baseUrl}${version}/${endpoint}/?output=${outputType}`
     );
     return response;
   }
