@@ -1,7 +1,7 @@
 {
   "name": "zenith-omen.js",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "A user-friendly program that offers many random anime images with additional features.",
   "main": "dist/index.js",
   "types": "dist/types",
   "directories": {
@@ -32,5 +32,11 @@
   "bugs": {
     "url": "https://github.com/Stawa/ZenithOmen.js/issues"
   },
-  "homepage": "https://github.com/Stawa/ZenithOmen.js#readme"
+  "homepage": "https://github.com/Stawa/ZenithOmen.js#readme",
+  "dependencies": {
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@types/xml2js": "^0.4.14"
+  }
 }

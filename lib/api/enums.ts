@@ -1,12 +1,12 @@
 /**
- * Enum representing different versions.
+ * Enum representing various API versions.
  */
 export enum Version {
   V1 = "v1",
 }
 
 /**
- * Enum representing safe-for-work routes.
+ * Enumeration defines routes that are appropriate for a general audience (SFW).
  */
 export enum SfwRoutes {
   BITE = "sfw/bite",
@@ -25,7 +25,7 @@ export enum SfwRoutes {
 }
 
 /**
- * Enum representing different output types.
+ * Enumeration of different output API types.
  */
 export enum OutputType {
   XML = "xml",
@@ -33,39 +33,45 @@ export enum OutputType {
 }
 
 /**
- * Represents the response from an API request.
+ * The response from an API request.
  * @class
- * @classdesc Encapsulates the response data received from an API request.
+ * @classdesc Includes the response data from an API request.
  */
 export class APIResponse {
   /**
-   * The URL of the API request.
+   * The API request's return URL.
    * @type {string}
    */
   url: string;
 
   /**
-   * An array of URLs from the API response.
+   * An array of URLs retrieved from the API response.
    * @type {string[]}
    */
   urls: string[];
 
   /**
-   * Error messages from the API response.
+   * The API response error messages.
    * @type {string}
    */
   errorMessages: string;
 
   /**
-   * The HTTP status code of the API response.
+   * The API response's HTTP status code.
    * @type {number}
    */
   status: number;
 
   /**
-   * Create a new APIResponse instance.
+   * The raw API response, which can be in XML or JSON format.
+   * @type {object}
+   */
+  rawResponse: object;
+
+  /**
+   * Create a new instance of APIResponse.
    * @constructor
-   * @param {object} response - The raw response object from the API.
+   * @param {object} response - The API's raw response object.
    */
   constructor(response: {
     url: string;
@@ -77,5 +83,6 @@ export class APIResponse {
     this.urls = response.urls;
     this.errorMessages = response.errorMessages;
     this.status = response.status;
+    this.rawResponse = response;
   }
 }

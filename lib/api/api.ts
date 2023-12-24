@@ -1,8 +1,10 @@
+import xml2js from "xml2js";
 import { APIResponse, OutputType, SfwRoutes, Version } from "./enums";
 import request from "../request";
 
 /**
- * Options for configuring ZenithOmen behavior.
+ * @class Options
+ * @classdesc Options for configuring the ZenithOmen function.
  */
 export class Options {
   /**
@@ -18,7 +20,7 @@ export class Options {
   defaultVersion: Version;
 
   /**
-   * Create a new Options instance.
+   * Create a new instance of Options.
    * @constructor
    * @param {object} options - The configuration options.
    * @param {OutputType} options.outputType - The desired output type (default: JSON).
@@ -37,8 +39,8 @@ export class Options {
 }
 
 /**
- * ZenithOmen class for making requests to a specific set of safe-for-work routes.
- * Extends the base request class.
+ * @classdesc ZenithOmen represents a class that allows users to send requests to a specific list of API routes.
+ * @extends request Extends the base request class.
  */
 export class ZenithOmen extends request {
   /**
@@ -48,7 +50,7 @@ export class ZenithOmen extends request {
   options: Options;
 
   /**
-   * Create a new ZenithOmen instance.
+   * Create a new instance of ZenithOmen.
    * @constructor
    * @param {Options} options - The configuration options.
    */
@@ -66,7 +68,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "dare" route.
    * @returns {Promise<APIResponse>}
    */
   async dare(): Promise<APIResponse> {
@@ -74,7 +76,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "headpat" route.
    * @returns {Promise<APIResponse>}
    */
   async headpat(): Promise<APIResponse> {
@@ -82,7 +84,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "highfive" route.
    * @returns {Promise<APIResponse>}
    */
   async highfive(): Promise<APIResponse> {
@@ -90,7 +92,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "hug" route.
    * @returns {Promise<APIResponse>}
    */
   async hug(): Promise<APIResponse> {
@@ -98,7 +100,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "husbando" route.
    * @returns {Promise<APIResponse>}
    */
   async husbando(): Promise<APIResponse> {
@@ -106,7 +108,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "neko" route.
    * @returns {Promise<APIResponse>}
    */
   async neko(): Promise<APIResponse> {
@@ -114,7 +116,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "poke" route.
    * @returns {Promise<APIResponse>}
    */
   async poke(): Promise<APIResponse> {
@@ -122,7 +124,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "run" route.
    * @returns {Promise<APIResponse>}
    */
   async run(): Promise<APIResponse> {
@@ -130,7 +132,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "slap" route.
    * @returns {Promise<APIResponse>}
    */
   async slap(): Promise<APIResponse> {
@@ -138,7 +140,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "smile" route.
    * @returns {Promise<APIResponse>}
    */
   async smile(): Promise<APIResponse> {
@@ -146,7 +148,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "truth" route.
    * @returns {Promise<APIResponse>}
    */
   async truth(): Promise<APIResponse> {
@@ -154,7 +156,7 @@ export class ZenithOmen extends request {
   }
 
   /**
-   * Fetch data for the "bite" route.
+   * Fetch data for the "waifu" route.
    * @returns {Promise<APIResponse>}
    */
   async waifu(): Promise<APIResponse> {
@@ -162,15 +164,18 @@ export class ZenithOmen extends request {
   }
 
   /**
+   * Private method to fetch data from the API.
    * @private
+   * @param {string} route - The route or endpoint to fetch data from.
+   * @returns {Promise<APIResponse>} A promise that resolves to the APIResponse containing the fetched data.
    */
   private async __fetch(route: string): Promise<APIResponse> {
-    const response = (await this.get(
-      this.options.defaultVersion,
-      route,
-      this.options.outputType
-    )) as APIResponse;
-
-    return new APIResponse(response);
+    const { defaultVersion, outputType } = this.options;
+    const response = await this.get(defaultVersion, route, outputType);
+    const data =
+      outputType === OutputType.JSON
+        ? await response.json()
+        : await xml2js.parseStringPromise(await response.text());
+    return new APIResponse(data);
   }
 }
