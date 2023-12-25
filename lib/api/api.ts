@@ -171,13 +171,17 @@ export class ZenithOmen extends request {
    */
   private async __fetch(route: string): Promise<APIResponse> {
     const { defaultVersion, outputType } = this.options;
-    const response = await this.get(defaultVersion, route, outputType);
-    const data =
+    const apiResponse = await this.get(defaultVersion, route, outputType);
+    const parsedData =
       outputType === OutputType.JSON
-        ? await response.json()
-        : await xml2js.parseStringPromise(await response.text(), {
+        ? await apiResponse.json()
+        : await xml2js.parseStringPromise(await apiResponse.text(), {
             explicitArray: false,
           });
-    return new APIResponse(data);
+
+    const responseData =
+      outputType !== OutputType.JSON ? parsedData.response : parsedData;
+
+    return new APIResponse(responseData);
   }
 }
