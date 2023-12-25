@@ -12,6 +12,12 @@
     <a href="https://zenith-omen.vercel.app/api/v1"><img src="https://img.shields.io/website?down_color=critical&down_message=offline&style=flat&up_color=blue&up_message=online&url=https://zenith-omen.vercel.app/api/v1"></a>
 </p>
 
+<h3> <span class="emoji">📜</span> Table of Contents </h3>
+
+1. <a href="#--project-examples-"> <b>Project Installlation</b> </a>
+2. <a href="#--project-examples-"> <b>Project Examples</b> </a>
+3. <a href="#--links-related-"> <b>Links Related</b> </a>
+
 <h4> <span class="emoji">📦</span> Project Installlation </h4>
 
 <p> For our project, there are two installation options: the Stable version and the Development version. </p>
