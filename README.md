@@ -9,6 +9,7 @@
 <p align="center">
     <a href="https://sonarcloud.io/project/overview?id=Stawa_ZenithOmen.js"><img src="https://sonarcloud.io/api/project_badges/measure?project=Stawa_ZenithOmen.js&metric=reliability_rating" alt="SonarCloud" /></a>
     <a href="https://www.npmjs.com/package/zenith-omen.js"><img src="https://img.shields.io/npm/dm/zenith-omen.js"></a>
+    <a href="https://zenith-omen.vercel.app/api/v1"><img src="https://img.shields.io/website?down_color=critical&down_message=offline&style=flat&up_color=blue&up_message=online&url=https://zenith-omen.vercel.app/api/v1"></a>
 </p>
 
 <h4> <span class="emoji">📦</span> Project Installlation </h4>
