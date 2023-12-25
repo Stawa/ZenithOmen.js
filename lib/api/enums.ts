@@ -40,15 +40,27 @@ export enum OutputType {
 export class APIResponse {
   /**
    * The API request's return URL.
-   * @type {string}
+   * @type {string | string[]}
    */
-  url: string;
+  url: string | string[];
 
   /**
-   * An array of URLs retrieved from the API response.
-   * @type {string[]}
+   * The text content returned by the API.
+   * @type {string | string[]}
    */
-  urls: string[];
+  textContent: string | string[];
+
+  /**
+   * The total amount of text available from the API.
+   * @type {number}
+   */
+  textCount: number;
+
+  /**
+   * The total amount of images available from the API.
+   * @type {number}
+   */
+  imageCount: number;
 
   /**
    * The API response error messages.
@@ -60,29 +72,33 @@ export class APIResponse {
    * The API response's HTTP status code.
    * @type {number}
    */
-  status: number;
+  statusCode: number;
 
   /**
    * The raw API response, which can be in XML or JSON format.
-   * @type {object}
+   * @type {object | string}
    */
-  rawResponse: object;
+  rawResponse: object | string;
 
   /**
    * Create a new instance of APIResponse.
    * @constructor
-   * @param {object} response - The API's raw response object.
+   * @param {object | string} response - The API's raw response object.
    */
   constructor(response: {
-    url: string;
-    urls: string[];
+    url: string | string[];
+    textContent: string | string[];
+    textCount: number;
+    imageCount: number;
     errorMessages: string;
-    status: number;
+    statusCode: number;
   }) {
     this.url = response.url;
-    this.urls = response.urls;
+    this.textContent = response.textContent;
+    this.textCount = response.textCount;
+    this.imageCount = response.imageCount;
     this.errorMessages = response.errorMessages;
-    this.status = response.status;
+    this.statusCode = response.statusCode;
     this.rawResponse = response;
   }
 }
