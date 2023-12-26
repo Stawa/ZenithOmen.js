@@ -14,7 +14,7 @@
 
 <h3> <span class="emoji">📜</span> Table of Contents </h3>
 
-1. <a href="#--project-examples-"> <b>Project Installlation</b> </a>
+1. <a href="#--project-installlation-"> <b>Project Installlation</b> </a>
 2. <a href="#--project-examples-"> <b>Project Examples</b> </a>
 3. <a href="#--links-related-"> <b>Links Related</b> </a>
 
