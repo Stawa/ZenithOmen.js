@@ -1,5 +1,11 @@
 import xml2js from "xml2js";
-import { APIResponse, OutputType, SfwRoutes, Version } from "./enums";
+import {
+  APIResponse,
+  OutputContent,
+  OutputFormat,
+  SfwRoutes,
+  Version,
+} from "./enums";
 import request from "../request";
 
 /**
@@ -9,9 +15,9 @@ import request from "../request";
 export class Options {
   /**
    * The desired output type for API responses.
-   * @type {OutputType}
+   * @type {OutputFormat}
    */
-  outputType: OutputType;
+  outputFormat: OutputFormat;
 
   /**
    * The default API version to use.
@@ -23,17 +29,20 @@ export class Options {
    * Create a new instance of Options.
    * @constructor
    * @param {object} options - The configuration options.
-   * @param {OutputType} options.outputType - The desired output type (default: JSON).
+   * @param {OutputFormat} options.outputFormat - The desired output type (default: JSON).
    * @param {Version} options.defaultVersion - The default API version to use (default: V1).
    */
-  constructor(options?: { outputType?: OutputType; defaultVersion?: Version }) {
+  constructor(options?: {
+    outputFormat?: OutputFormat;
+    defaultVersion?: Version;
+  }) {
     const defaultOptions = {
-      outputType: OutputType.JSON,
+      outputFormat: OutputFormat.JSON,
       defaultVersion: Version.V1,
     };
     const opts = { ...defaultOptions, ...options };
 
-    this.outputType = opts.outputType;
+    this.outputFormat = opts.outputFormat;
     this.defaultVersion = opts.defaultVersion;
   }
 }
@@ -63,104 +72,104 @@ export class ZenithOmen extends request {
    * Fetch data for the "bite" route.
    * @returns {Promise<APIResponse>}
    */
-  async bite(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.BITE);
+  async bite(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.BITE, outputContent);
   }
 
   /**
    * Fetch data for the "dare" route.
    * @returns {Promise<APIResponse>}
    */
-  async dare(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.DARE);
+  async dare(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.DARE, outputContent);
   }
 
   /**
    * Fetch data for the "headpat" route.
    * @returns {Promise<APIResponse>}
    */
-  async headpat(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.HEADPAT);
+  async headpat(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.HEADPAT, outputContent);
   }
 
   /**
    * Fetch data for the "highfive" route.
    * @returns {Promise<APIResponse>}
    */
-  async highfive(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.HIGHFIVE);
+  async highfive(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.HIGHFIVE, outputContent);
   }
 
   /**
    * Fetch data for the "hug" route.
    * @returns {Promise<APIResponse>}
    */
-  async hug(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.HUG);
+  async hug(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.HUG, outputContent);
   }
 
   /**
    * Fetch data for the "husbando" route.
    * @returns {Promise<APIResponse>}
    */
-  async husbando(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.HUSBANDO);
+  async husbando(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.HUSBANDO, outputContent);
   }
 
   /**
    * Fetch data for the "neko" route.
    * @returns {Promise<APIResponse>}
    */
-  async neko(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.NEKO);
+  async neko(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.NEKO, outputContent);
   }
 
   /**
    * Fetch data for the "poke" route.
    * @returns {Promise<APIResponse>}
    */
-  async poke(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.POKE);
+  async poke(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.POKE, outputContent);
   }
 
   /**
    * Fetch data for the "run" route.
    * @returns {Promise<APIResponse>}
    */
-  async run(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.RUN);
+  async run(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.RUN, outputContent);
   }
 
   /**
    * Fetch data for the "slap" route.
    * @returns {Promise<APIResponse>}
    */
-  async slap(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.SLAP);
+  async slap(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.SLAP, outputContent);
   }
 
   /**
    * Fetch data for the "smile" route.
    * @returns {Promise<APIResponse>}
    */
-  async smile(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.SMILE);
+  async smile(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.SMILE, outputContent);
   }
 
   /**
    * Fetch data for the "truth" route.
    * @returns {Promise<APIResponse>}
    */
-  async truth(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.TRUTH);
+  async truth(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.TRUTH, outputContent);
   }
 
   /**
    * Fetch data for the "waifu" route.
    * @returns {Promise<APIResponse>}
    */
-  async waifu(): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.WAIFU);
+  async waifu(outputContent?: string | OutputContent): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.WAIFU, outputContent);
   }
 
   /**
@@ -169,18 +178,32 @@ export class ZenithOmen extends request {
    * @param {string} route - The route or endpoint to fetch data from.
    * @returns {Promise<APIResponse>} A promise that resolves to the APIResponse containing the fetched data.
    */
-  private async __fetch(route: string): Promise<APIResponse> {
-    const { defaultVersion, outputType } = this.options;
-    const apiResponse = await this.get(defaultVersion, route, outputType);
+  private async __fetch(
+    route: string,
+    customOutputContent: string = ""
+  ): Promise<APIResponse> {
+    const { defaultVersion, outputFormat } = this.options;
+
+    const requestOptions = {
+      version: defaultVersion,
+      endpoint: route,
+      queryParams: {
+        outputFormat,
+        outputContent: customOutputContent,
+      },
+    };
+
+    const apiResponse = await this.get(requestOptions);
+
     const parsedData =
-      outputType === OutputType.JSON
+      outputFormat === OutputFormat.JSON
         ? await apiResponse.json()
         : await xml2js.parseStringPromise(await apiResponse.text(), {
             explicitArray: false,
           });
 
     const responseData =
-      outputType !== OutputType.JSON ? parsedData.response : parsedData;
+      outputFormat !== OutputFormat.JSON ? parsedData.response : parsedData;
 
     return new APIResponse(responseData);
   }

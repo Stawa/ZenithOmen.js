@@ -1,5 +1,6 @@
 /**
  * Enum representing various API versions.
+ * @readonly
  */
 export enum Version {
   V1 = "v1",
@@ -7,6 +8,7 @@ export enum Version {
 
 /**
  * Enumeration defines routes that are appropriate for a general audience (SFW).
+ * @readonly
  */
 export enum SfwRoutes {
   BITE = "sfw/bite",
@@ -26,10 +28,24 @@ export enum SfwRoutes {
 
 /**
  * Enumeration of different output API types.
+ * @readonly
+ * @property {string} XML - Output format in XML.
+ * @property {string} JSON - Output format in JSON.
  */
-export enum OutputType {
+export enum OutputFormat {
   XML = "xml",
   JSON = "json",
+}
+
+/**
+ * Enumeration of different output content API types.
+ * @readonly
+ * @property {string} PICTURE - Output content as a picture.
+ * @property {string} GIF - Output content as a GIF.
+ */
+export enum OutputContent {
+  PICTURE = "picture",
+  GIF = "gif",
 }
 
 /**
