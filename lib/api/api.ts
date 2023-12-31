@@ -70,6 +70,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "bite" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async bite(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -78,6 +79,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "dare" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async dare(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -86,6 +88,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "headpat" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async headpat(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -94,6 +97,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "highfive" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async highfive(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -102,6 +106,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "hug" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async hug(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -118,6 +123,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "neko" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async neko(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -126,6 +132,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "poke" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async poke(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -134,6 +141,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "run" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async run(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -142,6 +150,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "slap" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async slap(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -150,6 +159,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "smile" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async smile(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -158,6 +168,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "truth" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async truth(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -166,6 +177,7 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "waifu" route.
+   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
    * @returns {Promise<APIResponse>}
    */
   async waifu(outputContent?: string | OutputContent): Promise<APIResponse> {
@@ -176,6 +188,7 @@ export class ZenithOmen extends request {
    * Private method to fetch data from the API.
    * @private
    * @param {string} route - The route or endpoint to fetch data from.
+   * @param {string} customOutputContent - Custom content type for the API response (e.g., 'json', 'xml').
    * @returns {Promise<APIResponse>} A promise that resolves to the APIResponse containing the fetched data.
    */
   private async __fetch(

@@ -32,7 +32,7 @@ export default class APIRequest {
 
   /**
    * Request a GET response from the API.
-   * @param {RequestOptions} options - Description
+   * @param {RequestOptions} options - The options for the GET request.
    * @returns {Promise<Response>} A promise that resolves to the API's raw response.
    */
   async get(options: RequestOptions): Promise<Response> {
