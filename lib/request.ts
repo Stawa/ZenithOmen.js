@@ -2,7 +2,7 @@
  * Interface representing options for making API requests.
  * @interface
  */
-interface RequestOptions {
+export interface RequestOptions {
   version: string;
   endpoint: string;
   queryParams?: Record<string, string>;
@@ -13,7 +13,7 @@ interface RequestOptions {
  * @class APIRequest
  * @classdesc Represents an API request utility.
  */
-export default class APIRequest {
+export class APIRequest {
   /**
    * The default URL for API requests.
    * @type {string}

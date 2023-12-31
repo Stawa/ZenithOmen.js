@@ -6,7 +6,16 @@ import {
   SfwRoutes,
   Version,
 } from "./enums";
-import request from "../request";
+import { APIRequest, RequestOptions } from "../request";
+
+interface OptionsClass {
+  outputFormat?: OutputFormat;
+  defaultVersion?: Version;
+}
+
+interface APIParameters {
+  outputContent?: string | OutputContent;
+}
 
 /**
  * @class Options
@@ -28,14 +37,11 @@ export class Options {
   /**
    * Create a new instance of Options.
    * @constructor
-   * @param {object} options - The configuration options.
+   * @param {OptionsClass} options - The configuration options.
    * @param {OutputFormat} options.outputFormat - The desired output type (default: JSON).
    * @param {Version} options.defaultVersion - The default API version to use (default: V1).
    */
-  constructor(options?: {
-    outputFormat?: OutputFormat;
-    defaultVersion?: Version;
-  }) {
+  constructor(options?: OptionsClass) {
     const defaultOptions = {
       outputFormat: OutputFormat.JSON,
       defaultVersion: Version.V1,
@@ -49,9 +55,9 @@ export class Options {
 
 /**
  * @classdesc ZenithOmen represents a class that allows users to send requests to a specific list of API routes.
- * @extends request Extends the base request class.
+ * @extends APIRequest Extends the base request class.
  */
-export class ZenithOmen extends request {
+export class ZenithOmen extends APIRequest {
   /**
    * The configuration options for ZenithOmen.
    * @type {Options}
@@ -70,139 +76,140 @@ export class ZenithOmen extends request {
 
   /**
    * Fetch data for the "bite" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async bite(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.BITE, outputContent);
+  async bite(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.BITE, param);
   }
 
   /**
    * Fetch data for the "dare" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async dare(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.DARE, outputContent);
+  async dare(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.DARE, param);
   }
 
   /**
    * Fetch data for the "headpat" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async headpat(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.HEADPAT, outputContent);
+  async headpat(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.HEADPAT, param);
   }
 
   /**
    * Fetch data for the "highfive" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async highfive(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.HIGHFIVE, outputContent);
+  async highfive(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.HIGHFIVE, param);
   }
 
   /**
    * Fetch data for the "hug" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async hug(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.HUG, outputContent);
+  async hug(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.HUG, param);
   }
 
   /**
    * Fetch data for the "husbando" route.
    * @returns {Promise<APIResponse>}
    */
-  async husbando(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.HUSBANDO, outputContent);
+  async husbando(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.HUSBANDO, param);
   }
 
   /**
    * Fetch data for the "neko" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async neko(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.NEKO, outputContent);
+  async neko(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.NEKO, param);
   }
 
   /**
    * Fetch data for the "poke" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async poke(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.POKE, outputContent);
+  async poke(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.POKE, param);
   }
 
   /**
    * Fetch data for the "run" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async run(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.RUN, outputContent);
+  async run(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.RUN, param);
   }
 
   /**
    * Fetch data for the "slap" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async slap(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.SLAP, outputContent);
+  async slap(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.SLAP, param);
   }
 
   /**
    * Fetch data for the "smile" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async smile(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.SMILE, outputContent);
+  async smile(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.SMILE, param);
   }
 
   /**
    * Fetch data for the "truth" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async truth(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.TRUTH, outputContent);
+  async truth(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.TRUTH, param);
   }
 
   /**
    * Fetch data for the "waifu" route.
-   * @param {string | OutputContent} outputContent - The output content type that is requested (e.g., 'picture', 'gif')
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
    */
-  async waifu(outputContent?: string | OutputContent): Promise<APIResponse> {
-    return this.__fetch(SfwRoutes.WAIFU, outputContent);
+  async waifu(param: APIParameters): Promise<APIResponse> {
+    return this.__fetch(SfwRoutes.WAIFU, param);
   }
 
   /**
    * Private method to fetch data from the API.
    * @private
    * @param {string} route - The route or endpoint to fetch data from.
-   * @param {string} customOutputContent - Custom content type for the API response (e.g., 'json', 'xml').
+   * @param {APIParameters} param - Custom configuration for the API request.
    * @returns {Promise<APIResponse>} A promise that resolves to the APIResponse containing the fetched data.
    */
   private async __fetch(
     route: string,
-    customOutputContent: string = ""
+    param: APIParameters
   ): Promise<APIResponse> {
     const { defaultVersion, outputFormat } = this.options;
+    const { outputContent = "" } = param;
 
-    const requestOptions = {
+    const requestOptions: RequestOptions = {
       version: defaultVersion,
       endpoint: route,
       queryParams: {
         outputFormat,
-        outputContent: customOutputContent,
+        outputContent,
       },
     };
 
