@@ -24,6 +24,9 @@ jobs:
           node-version: 16
           cache: "npm"
 
+      - name: Install Dependencies
+        run: npm install
+
       - name: Build Documentation
         run: npx typedoc --githubPages true
 
