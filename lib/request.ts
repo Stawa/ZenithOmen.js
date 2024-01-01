@@ -1,10 +1,12 @@
+import { EnumTypes, SfwRoutes, Version } from "./api";
+
 /**
  * Interface representing options for making API requests.
  * @interface
  */
 export interface RequestOptions {
-  version: string;
-  endpoint: string;
+  version: Version | EnumTypes["Version"];
+  endpoint: SfwRoutes | EnumTypes["SfwRoute"];
   queryParams?: Record<string, string>;
   headers?: Record<string, string>;
 }

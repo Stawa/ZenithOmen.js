@@ -1,20 +1,20 @@
 import xml2js from "xml2js";
 import {
   APIResponse,
-  OutputContent,
   OutputFormat,
   SfwRoutes,
   Version,
+  EnumTypes,
 } from "./enums";
 import { APIRequest, RequestOptions } from "../request";
 
 interface OptionsClass {
-  outputFormat?: OutputFormat;
-  defaultVersion?: Version;
+  outputFormat?: OutputFormat | EnumTypes["OutputFormat"];
+  defaultVersion?: Version | EnumTypes["Version"];
 }
 
 interface APIParameters {
-  outputContent?: string | OutputContent;
+  outputContent?: EnumTypes["OutputContent"];
 }
 
 /**
@@ -24,22 +24,22 @@ interface APIParameters {
 export class Options {
   /**
    * The desired output type for API responses.
-   * @type {OutputFormat}
+   * @type {OutputFormat | EnumTypes['OutputFormat']}
    */
-  outputFormat: OutputFormat;
+  outputFormat: OutputFormat | EnumTypes["OutputFormat"];
 
   /**
    * The default API version to use.
-   * @type {Version}
+   * @type {Version | EnumTypes['Version']}
    */
-  defaultVersion: Version;
+  defaultVersion: Version | EnumTypes["Version"];
 
   /**
    * Create a new instance of Options.
    * @constructor
    * @param {OptionsClass} options - The configuration options.
-   * @param {OutputFormat} options.outputFormat - The desired output type (default: JSON).
-   * @param {Version} options.defaultVersion - The default API version to use (default: V1).
+   * @param {OutputFormat | EnumTypes['OutputFormat']} options.outputFormat - The desired output type (default: JSON).
+   * @param {Version | EnumTypes['Version']} options.defaultVersion - The default API version to use (default: V1).
    */
   constructor(options?: OptionsClass) {
     const defaultOptions = {
@@ -193,12 +193,12 @@ export class ZenithOmen extends APIRequest {
   /**
    * Private method to fetch data from the API.
    * @private
-   * @param {string} route - The route or endpoint to fetch data from.
+   * @param {SfwRoutes | EnumTypes['SfwRoute']} route - The route or endpoint to fetch data from.
    * @param {APIParameters} param - Custom configuration for the API request.
    * @returns {Promise<APIResponse>} A promise that resolves to the APIResponse containing the fetched data.
    */
   private async __fetch(
-    route: string,
+    route: SfwRoutes | EnumTypes["SfwRoute"],
     param: APIParameters
   ): Promise<APIResponse> {
     const { defaultVersion, outputFormat } = this.options;
@@ -214,17 +214,36 @@ export class ZenithOmen extends APIRequest {
     };
 
     const apiResponse = await this.get(requestOptions);
+    const parsedData = await this.parseResponse(apiResponse);
 
-    const parsedData =
-      outputFormat === OutputFormat.JSON
-        ? await apiResponse.json()
-        : await xml2js.parseStringPromise(await apiResponse.text(), {
-            explicitArray: false,
-          });
-
-    const responseData =
-      outputFormat !== OutputFormat.JSON ? parsedData.response : parsedData;
+    const responseData = this.isJSON() ? parsedData : parsedData.response;
 
     return new APIResponse(responseData);
+  }
+
+  /**
+   * Checks if the output format is JSON based on the provided options.
+   * @private
+   * @returns {boolean} True if the output format is JSON, false otherwise.
+   */
+  private isJSON(): boolean {
+    return this.options.outputFormat.toLowerCase() === OutputFormat.JSON;
+  }
+
+  /**
+   * Parses the response from the API based on the detected output format.
+   * @private
+   * @param apiResponse - The response object comes from the API.
+   * @returns {Promise<any>} A promise refers to the parsed content of the response.
+   */
+  private async parseResponse(apiResponse: Response): Promise<any> {
+    const isJSON: boolean = this.isJSON();
+    const content: any = isJSON
+      ? await apiResponse.json()
+      : await apiResponse.text();
+
+    return isJSON
+      ? content
+      : await xml2js.parseStringPromise(content, { explicitArray: false });
   }
 }

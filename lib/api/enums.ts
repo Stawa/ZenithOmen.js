@@ -118,3 +118,25 @@ export class APIResponse {
     this.rawResponse = response;
   }
 }
+
+/**
+ * Creates an enum type from an object by extracting its keys.
+ * @param enumObject - The object representing an enum.
+ * @returns The first key of the enum.
+ */
+export function createEnumType<T extends object>(enumObject: T): keyof T {
+  return Object.keys(enumObject)[0] as keyof T;
+}
+
+const EnumTypes = {
+  Version: createEnumType(Version),
+  OutputFormat: createEnumType(OutputFormat),
+  OutputContent: createEnumType(OutputContent),
+  SfwRoute: createEnumType(SfwRoutes),
+};
+
+/**
+ * Represents an object containing dynamically generated enum types.
+ * @type {EnumTypes}
+ */
+export type EnumTypes = typeof EnumTypes;
