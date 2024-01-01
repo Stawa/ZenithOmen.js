@@ -26,8 +26,8 @@ jobs:
           node-version: 16
           cache: "npm"
 
-      - name: Generate TypeDoc Documentation
-        run: npx typedoc --githubPages false
+      - name: Build
+        uses: actions/jekyll-build-pages@v1
 
       - name: TSDoc Action
         uses: erikyo/tsdoc-action@v1
