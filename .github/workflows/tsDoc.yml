@@ -26,6 +26,9 @@ jobs:
           node-version: 16
           cache: "npm"
 
+      - name: Generate TypeDoc Documentation
+        run: npx typedoc --githubPages false
+
       - name: TSDoc Action
         uses: erikyo/tsdoc-action@v1
         with:
