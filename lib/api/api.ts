@@ -8,12 +8,12 @@ import {
 } from "./enums";
 import { APIRequest, RequestOptions } from "../request";
 
-interface OptionsClass {
+export interface OptionsClass {
   outputFormat?: OutputFormat | EnumTypes["OutputFormat"];
   defaultVersion?: Version | EnumTypes["Version"];
 }
 
-interface APIParameters {
+export interface APIParameters {
   outputContent?: EnumTypes["OutputContent"];
 }
 
@@ -38,8 +38,6 @@ export class Options {
    * Create a new instance of Options.
    * @constructor
    * @param {OptionsClass} options - The configuration options.
-   * @param {OutputFormat | EnumTypes['OutputFormat']} options.outputFormat - The desired output type (default: JSON).
-   * @param {Version | EnumTypes['Version']} options.defaultVersion - The default API version to use (default: V1).
    */
   constructor(options?: OptionsClass) {
     const defaultOptions = {

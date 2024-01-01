@@ -24,6 +24,10 @@
     "target": "ESNext",
     "useUnknownInCatchVariables": true
   },
+  "typedocOptions": {
+    "entryPoints": ["lib/*.ts"],
+    "out": "docs"
+  },
   "include": ["./**/*"],
   "exclude": ["node_modules"]
 }
