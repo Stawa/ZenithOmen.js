@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with TypeDoc
-        run: ${{ steps.detect-package-manager.outputs.runner }} typedoc --out docs
+        run: ${{ steps.detect-package-manager.outputs.runner }} typedoc "lib/index.ts" --out docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
