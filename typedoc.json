@@ -1,0 +1,12 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "includeVersion": true,
+  "plugin": ["@mxssfd/typedoc-theme"],
+  "theme": "my-theme",
+  "searchGroupBoosts": {
+    "Classes": 1.5
+  },
+  "navigationLinks": {
+    "GitHub": "https://github.com/Stawa/ZenithOmen.js"
+  }
+}
