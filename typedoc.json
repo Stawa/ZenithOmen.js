@@ -1,8 +1,8 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "includeVersion": true,
-  "plugin": ["@mxssfd/typedoc-theme"],
-  "theme": "my-theme",
+  "plugin": ["typedoc-material-theme"],
+  "themeColor": "#cb9820",
   "searchGroupBoosts": {
     "Classes": 1.5
   },
