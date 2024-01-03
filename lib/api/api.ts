@@ -20,6 +20,13 @@ export interface APIParameters {
 /**
  * @class Options
  * @classdesc Options for configuring the ZenithOmen function.
+ *
+ * @example
+ * const option = new Options({
+ *  option.outputFormat = "xml"
+ *  option.defaultVersion = "v1"
+ * });
+ * const zenith = new ZenithOmen(option);
  */
 export class Options {
   /**
@@ -76,6 +83,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "bite" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.bite().then(res => {
+   *  console.log(res)
+   * })
    */
   async bite(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.BITE, param);
@@ -85,6 +97,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "dare" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.dare().then(res => {
+   *  console.log(res)
+   * })
    */
   async dare(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.DARE, param);
@@ -94,6 +111,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "headpat" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.headpat().then(res => {
+   *  console.log(res)
+   * })
    */
   async headpat(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.HEADPAT, param);
@@ -103,6 +125,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "highfive" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.highfive().then(res => {
+   *  console.log(res)
+   * })
    */
   async highfive(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.HIGHFIVE, param);
@@ -112,6 +139,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "hug" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.hug().then(res => {
+   *  console.log(res)
+   * })
    */
   async hug(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.HUG, param);
@@ -119,7 +151,13 @@ export class ZenithOmen extends APIRequest {
 
   /**
    * Fetch data for the "husbando" route.
+   * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.husbando().then(res => {
+   *  console.log(res)
+   * })
    */
   async husbando(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.HUSBANDO, param);
@@ -129,6 +167,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "neko" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.neko().then(res => {
+   *  console.log(res)
+   * })
    */
   async neko(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.NEKO, param);
@@ -138,6 +181,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "poke" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.poke().then(res => {
+   *  console.log(res)
+   * })
    */
   async poke(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.POKE, param);
@@ -147,6 +195,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "run" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.run().then(res => {
+   *  console.log(res)
+   * })
    */
   async run(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.RUN, param);
@@ -156,6 +209,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "slap" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.slap().then(res => {
+   *  console.log(res)
+   * })
    */
   async slap(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.SLAP, param);
@@ -165,6 +223,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "smile" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.smile().then(res => {
+   *  console.log(res)
+   * })
    */
   async smile(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.SMILE, param);
@@ -174,6 +237,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "truth" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.truth().then(res => {
+   *  console.log(res)
+   * })
    */
   async truth(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.TRUTH, param);
@@ -183,6 +251,11 @@ export class ZenithOmen extends APIRequest {
    * Fetch data for the "waifu" route.
    * @param {APIParameters} param - The parameters for configuration are used when sending a request to the API.
    * @returns {Promise<APIResponse>}
+   * @example
+   * const zenith = new ZenithOmen();
+   * zenith.waifu().then(res => {
+   *  console.log(res)
+   * })
    */
   async waifu(param: APIParameters): Promise<APIResponse> {
     return this.__fetch(SfwRoutes.WAIFU, param);
