@@ -8,9 +8,11 @@
 
 <p align="center">
     <a href="https://sonarcloud.io/project/overview?id=Stawa_ZenithOmen.js"><img src="https://sonarcloud.io/api/project_badges/measure?project=Stawa_ZenithOmen.js&metric=reliability_rating" alt="SonarCloud" /></a>
-    <a href="https://www.npmjs.com/package/zenith-omen.js"><img src="https://img.shields.io/npm/dm/zenith-omen.js"></a>
-    <a href="https://zenith-omen.vercel.app/api/v1"><img src="https://img.shields.io/website?down_color=critical&down_message=offline&style=flat&up_color=4CBB17&up_message=online&url=https://zenith-omen.vercel.app/api/v1"></a>
-    <a href="https://stawa.github.io/ZenithOmen.js/"><img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fstawa.github.io%2FZenithOmen.js%2F&up_message=available&up_color=1F51FF&down_color=critical&style=flat&logo=github&label=documentation">
+    <a href="https://www.npmjs.com/package/zenith-omen.js"><img src="https://img.shields.io/npm/dm/zenith-omen.js?logo=npm&label=Downloads&labelColor=black"></a>
+    <a href="https://zenith-omen.vercel.app/api/v1"><img src="https://img.shields.io/website?down_color=critical&down_message=offline&style=flat&up_color=4CBB17&up_message=online&url=https://zenith-omen.vercel.app/api/v1&logo=express&label=Website&labelColor=black"></a>
+    <a href="https://stawa.github.io/ZenithOmen.js/"><img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fstawa.github.io%2FZenithOmen.js%2F&up_message=available&up_color=1F51FF&down_color=critical&style=flat&logo=github&label=Documentation&labelColor=black">
+    </a>
+    <a href="https://www.typescriptlang.org/"><img src=https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white>
     </a>
 </p>
 

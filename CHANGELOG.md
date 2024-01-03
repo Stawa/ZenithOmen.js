@@ -2,12 +2,15 @@
 
 Any major changes will be documented in this file. If you spot any missed changes, please submit a [Pull requests](https://github.com/Stawa/ZenithOmen.js/pulls)!
 
-## [0.2.0] - December 31, 2023
+## [0.2.0] - December 3, 2023
 
 ### Added
 
-- Introducing a new parameter: `outputContent` query for customizing output in `ZenithOmen` functions.
-- Added `rimraf` as a devDependency for build scripts.
+- New parameter: `outputContent` for customizing output in `ZenithOmen` functions.
+- Added `rimraf` as a devDependency for building scripts.
+- New typings for parameter values using `EnumTypes`.
+- New documentation: [ZenithOmen.js Documentation](https://stawa.github.io/ZenithOmen.js/).
+- Example added to the `ZenithOmen` class for each function.
 
 ### Changed
 
